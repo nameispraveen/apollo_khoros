@@ -33,8 +33,9 @@ export default function FetchData() {
         setone(null);
         setdata(result.data.messages.items);
         console.log(result.data.messages.items);
-      }, []);
-  });
+      })
+  },[]);
+  useEffect(()=>{}, []) 
   console.log(data)
   return (
     <ApolloProvider client={client}>
@@ -44,7 +45,6 @@ export default function FetchData() {
           return (<div key={index}>
             <div>Id :{item.id}</div>
             <div>Subject :{item.subject}</div>
-           
             <div>Body : <div dangerouslySetInnerHTML={{__html:item?.body}} /></div>
             <hr />
           </div>)
